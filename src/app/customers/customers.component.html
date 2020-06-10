@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="mb-5">List of Customers</h1>
+
+    <button class="btn btn-primary mt-2 mb-3">
+      <a [routerLink]="['customer/add/0']">
+        <i class="fa fa-plus"></i>
+        Add Customer
+      </a>
+    </button>
+
+    <table class="table">
+      <thead>
+        <th>Customer ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th colspan="2"></th>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let customer of allcustomers">
+          <td>
+            {{ customer.CustomerId }}
+          </td>
+
+          <td>
+            {{ customer.name }}
+          </td>
+
+          <td>
+            {{ customer.age }}
+          </td>
+
+          <td>
+            {{ customer.gender }}
+          </td>
+
+          <td>
+            <button class="btn btn-info btn-sm">
+              <a [routerLink]="['customer/edit', customer.CustomerId]">
+                <i class="fa fa-pencil"></i>
+              </a>
+            </button>
+          </td>
+          <td>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="onDelete(customer.CustomerId)"
+            >
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

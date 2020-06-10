@@ -1,0 +1,61 @@
+<h2 class="mb-4">
+    {{header}}
+</h2>
+
+<form (ngSubmit)="onSubmit(submitform)" #submitform="ngForm">
+    <div class="row">
+        <div class="col-md-12">
+            <label for="">ID</label>
+            <input type="number" name="CustomerId" class="form-control" [ngModel]="customer.CustomerId" required #CustomerId="ngModel">
+
+            <div class="text-danger" *ngIf="CustomerId.errors && (CustomerId.dirty || CustomerId.touched)">    
+                <p *ngIf="CustomerId.errors.required">
+                    CustomerId is required
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label for="">Name</label>
+            <input type="text" name="name" class="form-control" [ngModel]="customer.name" required #name="ngModel">
+
+            <div class="text-danger" *ngIf="name.errors && (name.dirty || name.touched)">    
+                <p *ngIf="name.errors.required">
+                    Name is required
+                </p>
+            </div>
+        </div>  
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label for="">Age</label>
+            <input type="text" name="age" class="form-control" [ngModel]="customer.age" required #age="ngModel">
+
+            <div class="text-danger" *ngIf="age.errors && (age.dirty || age.touched)">    
+                <p *ngIf="age.errors.required">
+                    Age is required
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label for="">gender</label>
+        </div>  
+    </div>
+
+   
+
+    <div class="row mt-2">
+        <div class="col-md-5">
+            <button type="submit" class="btn btn-secondary" [disabled]="!submitform.form.valid">
+                Submit
+            </button>
+        </div>
+    </div>
+
+</form>
